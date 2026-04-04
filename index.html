@@ -175,7 +175,7 @@
         // 관리자 로그인
         window.attemptLogin = async () => {
             const inputPw = document.getElementById('adminPassword').value;
-            const configRef = doc(db, 'artifacts', appId, 'public', 'settings', 'admin');
+            const configDocRef = doc(db, 'artifacts', appId, 'public', 'settings', 'admin');
             const snap = await getDoc(configRef);
             const masterPw = snap.exists() ? snap.data().password : "!factcheck123";
 
