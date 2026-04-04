@@ -175,7 +175,7 @@
         // 관리자 로그인
         window.attemptLogin = async () => {
             const inputPw = document.getElementById('adminPassword').value;
-            const configDocRef = doc(db, 'artifacts', appId, 'public', 'settings', 'admin');
+            const configDocRef = doc(db, 'artifacts', appId, 'public', 'settings');
             const snap = await getDoc(configRef);
             const masterPw = snap.exists() ? snap.data().password : "!factcheck123";
 
@@ -188,7 +188,7 @@
 
         // 상태 업데이트 (승인/보류)
         window.updateRecordStatus = async (id, status) => {
-            await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'refutes', id), { status });
+            await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'refutes', 'post', id), { status });
         };
 
         // UI 업데이트 로직
